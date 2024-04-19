@@ -1,12 +1,9 @@
 const sqlite3 = require("sqlite3").verbose();
-
-const db = new sqlite3.Database(
-  "./mydb.sqlite3",
-  sqlite3.OPEN_READWRITE,
-  (err) => {
-    if (err) console.error(err.message);
-  }
-);
+const path = require("path");
+const dbPath = path.resolve(__dirname, "../../mydb.sqlite3");
+const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE, (err) => {
+  if (err) console.error("Error opening database: " + err.message);
+});
 
 function addItem(item, callback) {
   const { Name, Quantity, Unit, Tags, ImageURL, ExpirationDate } = item;
@@ -24,9 +21,33 @@ function addItem(item, callback) {
   );
 }
 
+function addMultipleItems(items, callback) {
+  const placeholders = items.map(() => "(?, ?, ?, ?, ?, ?)").join(",");
+  const values = [];
+  items.forEach((item) => {
+    values.push(
+      item.Name,
+      item.Quantity,
+      item.Unit,
+      item.Tags,
+      item.ImageURL,
+      item.ExpirationDate
+    );
+  });
+
+  const sql = `INSERT INTO pantry (Name, Quantity, Unit, Tags, ImageURL, ExpirationDate) VALUES ${placeholders}`;
+  db.run(sql, values, function (err) {
+    if (err) {
+      console.error("Error in addMultipleItems:", err.message);
+      callback(err);
+      return;
+    }
+    callback(null, { lastID: this.lastID }); // Note: lastID will only reflect the last inserted row's ID
+  });
+}
+
 function getAllItems(callback) {
-  const query = "SELECT * FROM pantry";
-  db.all(query, [], (err, rows) => {
+  db.all("SELECT * FROM pantry", [], (err, rows) => {
     if (err) {
       callback(err, null);
       return;
@@ -46,14 +67,13 @@ function updateItem(id, item, callback) {
         callback(err);
         return;
       }
-      callback(null, { id: this.changes });
+      callback(null, { changes: this.changes });
     }
   );
 }
 
 function deleteItem(id, callback) {
-  const query = `DELETE FROM pantry WHERE ID = ?`;
-  db.run(query, [id], function (err) {
+  db.run(`DELETE FROM pantry WHERE ID = ?`, [id], function (err) {
     if (err) {
       callback(err);
       return;
@@ -62,4 +82,26 @@ function deleteItem(id, callback) {
   });
 }
 
-module.exports = { addItem, getAllItems, updateItem, deleteItem };
+function deleteMultiple(ids, callback) {
+  const placeholders = ids.map(() => "?").join(",");
+  db.run(
+    `DELETE FROM pantry WHERE ID IN (${placeholders})`,
+    ids,
+    function (err) {
+      if (err) {
+        callback(err);
+        return;
+      }
+      callback(null, { deletedCount: this.changes });
+    }
+  );
+}
+
+module.exports = {
+  addItem,
+  addMultipleItems,
+  getAllItems,
+  updateItem,
+  deleteItem,
+  deleteMultiple,
+};

@@ -10,6 +10,20 @@ function createItem(req, res) {
   });
 }
 
+function createMultipleItems(req, res) {
+  pantryModel.addMultipleItems(req.body.items, (err, result) => {
+    if (err) {
+      res
+        .status(500)
+        .json({ error: "Failed to add items", details: err.message });
+      return;
+    }
+    res
+      .status(201)
+      .json({ message: "Items added successfully", lastInsertedId: result.id });
+  });
+}
+
 function listItems(req, res) {
   pantryModel.getAllItems((err, items) => {
     if (err) {
@@ -40,4 +54,26 @@ function deleteItem(req, res) {
   });
 }
 
-module.exports = { createItem, listItems, updateItem, deleteItem };
+function deleteMultipleItems(req, res) {
+  const ids = req.body.ids; // Expecting an array of IDs from the request body
+  pantryModel.deleteMultiple(ids, function (err, result) {
+    if (err) {
+      res
+        .status(500)
+        .json({ message: "Error deleting multiple items", error: err.message });
+      return;
+    }
+    res
+      .status(200)
+      .json({ message: "Items deleted", deletedCount: result.deletedCount });
+  });
+}
+
+module.exports = {
+  createItem,
+  createMultipleItems,
+  listItems,
+  updateItem,
+  deleteItem,
+  deleteMultipleItems,
+};

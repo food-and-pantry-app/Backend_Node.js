@@ -1,14 +1,18 @@
-const db = require("./db");
+const db = require("./db"); // Ensure this path correctly points to your DB module
 
 function getAllRecipes(callback) {
   db.all("SELECT * FROM Recipes", [], function (err, rows) {
-    callback(err, rows);
+    if (err) {
+      console.error("Error fetching recipes:", err.message); // Error logging
+      callback(err, null);
+      return;
+    }
+    callback(null, rows);
   });
 }
 
 function addRecipe(recipeData, callback) {
   const {
-    RecipeID,
     Title,
     Images,
     Cuisine,
@@ -21,9 +25,8 @@ function addRecipe(recipeData, callback) {
     Servings,
     CreatedAt,
   } = recipeData;
-  const sql = `INSERT INTO Recipes (RecipeID, Title, Images, Cuisine, Description, Ingredients, Instructions, PrepTime, CookTime, TotalTime, Servings, CreatedAt) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`;
+  const sql = `INSERT INTO Recipes (Title, Images, Cuisine, Description, Ingredients, Instructions, PrepTime, CookTime, TotalTime, Servings, CreatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
   const params = [
-    RecipeID,
     Title,
     JSON.stringify(Images),
     Cuisine,
@@ -37,7 +40,12 @@ function addRecipe(recipeData, callback) {
     CreatedAt,
   ];
   db.run(sql, params, function (err) {
-    callback(err, { id: this.lastID });
+    if (err) {
+      console.error("Error adding recipe:", err.message); // Log SQL error
+      callback(err);
+      return;
+    }
+    callback(null, { id: this.lastID });
   });
 }
 
@@ -71,14 +79,24 @@ function updateRecipe(id, recipeData, callback) {
     id,
   ];
   db.run(sql, params, function (err) {
-    callback(err, { id: this.changes });
+    if (err) {
+      console.error("Error updating recipe:", err.message); // Log SQL error
+      callback(err);
+      return;
+    }
+    callback(null, { id: this.changes });
   });
 }
 
 function deleteRecipe(id, callback) {
   const sql = `DELETE FROM Recipes WHERE RecipeID = ?`;
   db.run(sql, [id], function (err) {
-    callback(err, { deleted: this.changes });
+    if (err) {
+      console.error("Error deleting recipe:", err.message); // Log SQL error
+      callback(err);
+      return;
+    }
+    callback(null, { deleted: this.changes });
   });
 }
 

@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Set up database tables
-const db = setupDatabase(); // This should ensure tables are ready before the server starts listening.
+setupDatabase(); // This should ensure tables are ready before the server starts listening.
 
 app.use("/api/recipes", recipesRoutes);
 app.use("/api/pantry", pantryRoutes);

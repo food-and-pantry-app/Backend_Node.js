@@ -1,103 +1,120 @@
-Great! It looks like your database and tables are now set up correctly. With your tables created successfully, you should now be able to perform all CRUD operations without encountering errors related to missing tables.
+# Backend API for Pantry and Recipes Management
 
-Let’s recap the `curl` commands you can use to test the CRUD operations for both your `pantry` and `recipes` endpoints. Make sure your server is running when you execute these commands.
+## Overview
 
-### Test Pantry CRUD Operations
+This backend API provides a system for managing pantry items and recipes. It supports full CRUD operations, allowing users to create, read, update, and delete pantry items and recipes. The API is built using Node.js with Express and communicates with an SQLite database.
 
-1. **Create a Pantry Item**:
+## Getting Started
 
+### Initial Setup
+
+1. Install dependencies:
    ```bash
-   curl -X POST http://localhost:3000/api/pantry/ \
-   -H "Content-Type: application/json" \
-   -d '{
-       "Name": "Olive Oil",
-       "Quantity": 1,
-       "Unit": "bottle",
-       "Tags": "cooking, oil",
-       "ImageURL": "https://example.com/olive_oil.jpg",
-       "ExpirationDate": "2025-05-12"
-   }'
+   npm install
+   ```
+2. Start the server:
+   ```bash
+   npm start
    ```
 
-2. **List Pantry Items**:
+## API Endpoints
 
-   ```bash
-   curl -X GET http://localhost:3000/api/pantry/
-   ```
+### Pantry Endpoints
 
-3. **Update a Pantry Item**:
+- **Create a Pantry Item**
 
-   ```bash
-   curl -X PUT http://localhost:3000/api/pantry/1 \
-   -H "Content-Type: application/json" \
-   -d '{
-       "Name": "Extra Virgin Olive Oil",
-       "Quantity": 2,
-       "Unit": "bottle",
-       "Tags": "cooking, oil, healthy",
-       "ImageURL": "https://example.com/extra_virgin_olive_oil.jpg",
-       "ExpirationDate": "2026-01-01"
-   }'
-   ```
+  ```bash
+  curl -X POST http://localhost:3000/api/pantry/ \
+  -H "Content-Type: application/json" \
+  -d '{
+      "Name": "Olive Oil",
+      "Quantity": 1,
+      "Unit": "bottle",
+      "Tags": "cooking, oil",
+      "ImageURL": "https://example.com/olive_oil.jpg",
+      "ExpirationDate": "2025-05-12"
+  }'
+  ```
 
-4. **Delete a Pantry Item**:
+- **List Pantry Items**
 
-   ```bash
-   curl -X DELETE http://localhost:3000/api/pantry/1
-   ```
+  ```bash
+  curl -X GET http://localhost:3000/api/pantry/
+  ```
 
-### Test Recipes CRUD Operations
+- **Update a Pantry Item**
 
-1. **Create a Recipe**:
+  ```bash
+  curl -X PUT http://localhost:3000/api/pantry/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+      "Name": "Extra Virgin Olive Oil",
+      "Quantity": 2,
+      "Unit": "bottle",
+      "Tags": "cooking, oil, healthy",
+      "ImageURL": "https://example.com/extra_virgin_olive_oil.jpg",
+      "ExpirationDate": "2026-01-01"
+  }'
+  ```
 
-   ```bash
-   curl -X POST http://localhost:3000/api/recipes/ \
-   -H "Content-Type: application/json" \
-   -d '{
-       "Title": "Tomato Pasta",
-       "Images": ["https://example.com/tomato_pasta.jpg"],
-       "Cuisine": "Italian",
-       "Description": "Simple and delicious tomato pasta.",
-       "Ingredients": "[{\"ingredient\": \"Pasta\", \"quantity\": \"200g\"}, {\"ingredient\": \"Tomato Sauce\", \"quantity\": \"100ml\"}]",
-       "Instructions": "[\"Boil Pasta\", \"Mix with sauce\"]",
-       "PrepTime": 10,
-       "CookTime": 20,
-       "TotalTime": 30,
-       "Servings": 2,
-       "CreatedAt": "2024-10-10T00:00:00Z"
-   }'
-   ```
+- **Delete a Pantry Item**
 
-2. **List Recipes**:
+  ```bash
+  curl -X DELETE http://localhost:3000/api/pantry/1
+  ```
 
-   ```bash
-   curl -X GET http://localhost:3000/api/recipes/
-   ```
+### Recipes Endpoints
 
-3. **Update a Recipe**:
+- **Create a Recipe**
 
-   ```bash
-   curl -X PUT http://localhost:3000/api/recipes/1 \
-   -H "Content-Type: application/json" \
-   -d '{
-       "Title": "Updated Tomato Pasta",
-       "Images": ["https://example.com/updated_tomato_pasta.jpg"],
-       "Cuisine": "Italian",
-       "Description": "Updated simple and delicious tomato pasta.",
-       "Ingredients": "[{\"ingredient\": \"Pasta\", \"quantity\": \"250g\"}, {\"ingredient\": \"Tomato Sauce\", \"quantity\": \"150ml\"}]",
-       "Instructions": "[\"Boil Pasta\", \"Mix with updated sauce\"]",
-       "PrepTime": 12,
-       "CookTime": 22,
-       "TotalTime": 34,
-       "Servings": 3,
-       "CreatedAt": "2024-10-11T00:00:00Z"
-   }'
-   ```
+  ```bash
+  curl -X POST http://localhost:3000/api/recipes/ \
+  -H "Content-Type: application/json" \
+  -d '{
+      "Title": "Tomato Pasta",
+      "Images": ["https://example.com/tomato_pasta.jpg"],
+      "Cuisine": "Italian",
+      "Description": "Simple and delicious tomato pasta.",
+      "Ingredients": "[{\"ingredient\": \"Pasta\", \"quantity\": \"200g\"}, {\"ingredient\": \"Tomato Sauce\", \"quantity\": \"100ml\"}]",
+      "Instructions": "[\"Boil Pasta\", \"Mix with sauce\"]",
+      "PrepTime": 10,
+      "CookTime": 20,
+      "TotalTime": 30,
+      "Servings": 2,
+      "CreatedAt": "2024-10-10T00:00:00Z"
+  }'
+  ```
 
-4. **Delete a Recipe**:
+- **List Recipes**
 
-   ```bash
-   curl -X DELETE http://localhost:3000/api/recipes/1
-   ```
+  ```bash
+  curl -X GET http://localhost:3000/api/recipes/
+  ```
 
-Make sure the IDs used in the update and delete operations correspond to actual entries in your database. These `curl` commands should now work correctly if everything is set up as described.
+- **Update a Recipe**
+
+  ```bash
+  curl -X PUT http://localhost:3000/api/recipes/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+      "Title": "Updated Tomato Pasta",
+      "Images": ["https://example.com/updated_tomato_pasta.jpg"],
+      "Cuisine": "Italian",
+      "Description": "Updated simple and delicious tomato pasta.",
+      "Ingredients": "[{\"ingredient\": \"Pasta\", \"quantity\": \"250g\"}, {\"ingredient\": \"Tomato Sauce\", \"quantity\": \"150ml\"}]",
+      "Instructions": "[\"Boil Pasta\", \"Mix with updated sauce\"]",
+      "PrepTime": 12,
+      "CookTime": 22,
+      "TotalTime": 34,
+      "Servings": 3,
+      "CreatedAt": "2024-10-11T00:00:00Z"
+  }'
+  ```
+
+- **Delete a Recipe**
+
+  ```bash
+  curl -X DELETE http://localhost:3000/api/recipes/1
+  ```
+
+Feel free to adjust the `curl` commands to match the specific IDs and details of your database entries.

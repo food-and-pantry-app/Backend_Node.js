@@ -1,18 +1,10 @@
 const recipesModel = require("../models/recipesModel");
 
-function listAllRecipes(req, res) {
-  recipesModel.getAllRecipes((err, recipes) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({ message: "success", data: recipes });
-  });
-}
-
 function createRecipe(req, res) {
+  console.log("Attempting to create recipe with data:", req.body); // Detailed logging
   recipesModel.addRecipe(req.body, (err, result) => {
     if (err) {
+      console.error("Error creating recipe:", err.message); // Error logging
       res.status(400).json({ error: err.message });
       return;
     }
@@ -22,9 +14,22 @@ function createRecipe(req, res) {
   });
 }
 
+function listAllRecipes(req, res) {
+  recipesModel.getAllRecipes((err, recipes) => {
+    if (err) {
+      console.error("Error listing recipes:", err.message); // Error logging
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json({ message: "Success", data: recipes });
+  });
+}
+
 function updateRecipe(req, res) {
+  console.log("Updating recipe with ID:", req.params.id); // Log which recipe is being updated
   recipesModel.updateRecipe(req.params.id, req.body, (err, result) => {
     if (err) {
+      console.error("Error updating recipe:", err.message); // Error logging
       res.status(400).json({ error: err.message });
       return;
     }
@@ -33,8 +38,10 @@ function updateRecipe(req, res) {
 }
 
 function deleteRecipe(req, res) {
+  console.log("Deleting recipe with ID:", req.params.id); // Log which recipe is being deleted
   recipesModel.deleteRecipe(req.params.id, (err, result) => {
     if (err) {
+      console.error("Error deleting recipe:", err.message); // Error logging
       res.status(400).json({ error: err.message });
       return;
     }
