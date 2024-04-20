@@ -1,0 +1,150 @@
+[
+  {
+    "Title": "Spaghetti Aglio e Olio",
+    "Images": null,
+    "Cuisine": "Italian",
+    "Description": "A simple and classic Italian pasta dish made with garlic, olive oil, and red pepper flakes.",
+    "Ingredients": [
+      "8 oz spaghetti",
+      "4 cloves garlic, thinly sliced",
+      "1/4 cup extra virgin olive oil",
+      "1/2 tsp red pepper flakes",
+      "Salt and pepper to taste",
+      "Fresh parsley, chopped (for garnish)"
+    ],
+    "Instructions": [
+      "Cook spaghetti according to package instructions until al dente.",
+      "In a pan, heat olive oil over low heat. Add garlic and red pepper flakes, sauté until garlic is golden.",
+      "Add cooked spaghetti to the pan, toss to coat in the garlic oil mixture.",
+      "Season with salt and pepper, garnish with chopped parsley.",
+      "Serve hot and enjoy!"
+    ],
+    "PrepTime": "PT10M",
+    "CookTime": "PT10M",
+    "TotalTime": "PT20M",
+    "Servings": 2,
+    "CreatedAt": "2022-01-15T10:00:00Z"
+  },
+  {
+    "Title": "Margherita Pizza",
+    "Images": null,
+    "Cuisine": "Italian",
+    "Description": "A classic Italian pizza topped with fresh tomatoes, mozzarella, basil, and olive oil.",
+    "Ingredients": [
+      "1 pre-made pizza dough",
+      "1/2 cup marinara sauce",
+      "8 oz fresh mozzarella, sliced",
+      "2-3 ripe tomatoes, sliced",
+      "Fresh basil leaves",
+      "Olive oil",
+      "Salt and pepper to taste"
+    ],
+    "Instructions": [
+      "Preheat oven to 450°F (230°C).",
+      "Roll out the pizza dough on a baking sheet.",
+      "Spread marinara sauce over the dough, leaving a border for the crust.",
+      "Arrange sliced mozzarella and tomatoes on top of the sauce.",
+      "Bake in the oven for 12-15 minutes or until crust is golden and cheese is melted.",
+      "Remove from oven, top with fresh basil leaves, drizzle with olive oil, season with salt and pepper.",
+      "Slice and serve hot!"
+    ],
+    "PrepTime": "PT15M",
+    "CookTime": "PT15M",
+    "TotalTime": "PT30M",
+    "Servings": 4,
+    "CreatedAt": "2022-01-15T10:30:00Z"
+  },
+  {
+    "Title": "Risotto ai Funghi",
+    "Images": null,
+    "Cuisine": "Italian",
+    "Description": "A creamy and flavorful Italian risotto made with mushrooms, Arborio rice, and Parmesan cheese.",
+    "Ingredients": [
+      "1 cup Arborio rice",
+      "4 cups chicken or vegetable broth",
+      "1/2 cup dry white wine",
+      "1/2 onion, finely chopped",
+      "2 cloves garlic, minced",
+      "8 oz mushrooms, sliced",
+      "1/4 cup grated Parmesan cheese",
+      "2 tbsp butter",
+      "Salt and pepper to taste"
+    ],
+    "Instructions": [
+      "In a saucepan, heat the broth and keep it warm over low heat.",
+      "In a separate pan, melt butter and sauté onion and garlic until translucent.",
+      "Add mushrooms and cook until they release their juices.",
+      "Stir in Arborio rice and cook for a minute.",
+      "Deglaze with white wine and let it evaporate.",
+      "Begin adding warm broth one ladle at a time, stirring constantly until absorbed.",
+      "Continue this process until rice is creamy and cooked al dente.",
+      "Stir in Parmesan cheese, season with salt and pepper.",
+      "Serve hot and enjoy!"
+    ],
+    "PrepTime": "PT15M",
+    "CookTime": "PT30M",
+    "TotalTime": "PT45M",
+    "Servings": 4,
+    "CreatedAt": "2022-01-15T11:00:00Z"
+  },
+  {
+    "Title": "Chicken Piccata",
+    "Images": null,
+    "Cuisine": "Italian",
+    "Description": "A delicious Italian chicken dish cooked in a lemon, butter, and caper sauce.",
+    "Ingredients": [
+      "4 boneless, skinless chicken breasts",
+      "1/2 cup all-purpose flour",
+      "Salt and pepper to taste",
+      "2 tbsp olive oil",
+      "4 tbsp butter",
+      "1/2 cup chicken broth",
+      "1/4 cup fresh lemon juice",
+      "2 tbsp capers",
+      "Fresh parsley, chopped (for garnish)"
+    ],
+    "Instructions": [
+      "Season chicken breasts with salt and pepper, dredge in flour.",
+      "In a skillet, heat olive oil and 2 tbsp butter over medium-high heat.",
+      "Cook chicken until golden brown on both sides, about 3-4 minutes per side.",
+      "Remove chicken from the skillet and set aside.",
+      "In the same skillet, add chicken broth, lemon juice, capers, and remaining butter.",
+      "Simmer the sauce until slightly thickened.",
+      "Return chicken to the skillet, coat with the sauce.",
+      "Garnish with chopped parsley and serve hot!"
+    ],
+    "PrepTime": "PT15M",
+    "CookTime": "PT20M",
+    "TotalTime": "PT35M",
+    "Servings": 4,
+    "CreatedAt": "2022-01-15T11:30:00Z"
+  },
+  {
+    "Title": "Tiramisu",
+    "Images": null,
+    "Cuisine": "Italian",
+    "Description": "A classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream.",
+    "Ingredients": [
+      "1 cup brewed espresso, cooled",
+      "24 ladyfinger cookies",
+      "1 cup mascarpone cheese",
+      "1/2 cup sugar",
+      "2 tsp vanilla extract",
+      "Cocoa powder, for dusting"
+    ],
+    "Instructions": [
+      "In a bowl, combine mascarpone cheese, sugar, and vanilla extract until smooth.",
+      "Dip each ladyfinger into the brewed espresso and arrange a layer at the bottom of a dish.",
+      "Spread half of the mascarpone mixture over the ladyfingers.",
+      "Repeat with another layer of dipped ladyfingers and mascarpone mixture.",
+      "Cover and refrigerate for at least 4 hours or overnight.",
+      "Before serving, dust the top with cocoa powder.",
+      "Slice and enjoy this decadent dessert!"
+    ],
+    "PrepTime": "PT20M",
+    "CookTime": "PT0M",
+    "TotalTime": "PT4H20M",
+    "Servings": 6,
+    "CreatedAt": "2022-01-15T12:00:00Z"
+  }
+]
