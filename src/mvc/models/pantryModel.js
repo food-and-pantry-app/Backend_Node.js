@@ -42,7 +42,7 @@ function addMultipleItems(items, callback) {
       callback(err);
       return;
     }
-    callback(null, { lastID: this.lastID }); // Note: lastID will only reflect the last inserted row's ID
+    callback(null, { lastID: this.lastID });
   });
 }
 
@@ -97,6 +97,29 @@ function deleteMultiple(ids, callback) {
   );
 }
 
+// function deleteAllItems(callback) {
+//   db.run(`DELETE FROM pantry`, function (err) {
+//     if (err) {
+//       callback(err);
+//       return;
+//     }
+//     callback(null, { deletedCount: this.changes });
+//   });
+// }
+
+function deleteAllItems(callback) {
+  console.log("Attempting to delete all items from the pantry table.");
+  db.run(`DELETE FROM pantry`, function (err) {
+    if (err) {
+      console.error("Error deleting items:", err);
+      callback(err);
+      return;
+    }
+    console.log(`Deleted ${this.changes} items from the pantry.`);
+    callback(null, { deletedCount: this.changes });
+  });
+}
+
 module.exports = {
   addItem,
   addMultipleItems,
@@ -104,4 +127,5 @@ module.exports = {
   updateItem,
   deleteItem,
   deleteMultiple,
+  deleteAllItems,
 };

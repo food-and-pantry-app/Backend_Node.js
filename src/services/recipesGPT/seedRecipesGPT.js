@@ -5,11 +5,11 @@ const path = require("path");
 
 const API_KEY = process.env.API_KEY;
 const API_URL = "https://api.openai.com/v1/chat/completions";
-const OUTPUT_FILE = path.join(__dirname, "recipeItems.json"); // Ensure the path is correct for your project structure
+const OUTPUT_FILE = path.join(__dirname, "recipeItems.json");
 
 const generateRecipesByCategory = async (cuisine, count) => {
   console.log(`Generating ${count} recipe item(s) for cuisine: ${cuisine}`);
-  const maxTokens = 800 + count * 200; // Adjusted for recipe complexity
+  const maxTokens = 800 + count * 200;
 
   try {
     const response = await axios.post(
@@ -59,9 +59,9 @@ function saveItemsToFile(items) {
   fs.readFile(OUTPUT_FILE, { encoding: "utf8", flag: "a+" }, (err, data) => {
     let json = [];
     if (!err && data.length) {
-      json = JSON.parse(data); // Parse existing data if file is not empty
+      json = JSON.parse(data);
     }
-    json.push(...items.recipes); // Append new items by accessing the 'recipes' array within 'items'
+    json.push(...items.recipes);
     fs.writeFile(OUTPUT_FILE, JSON.stringify(json, null, 2), (err) => {
       if (err) {
         console.error("Error writing to file:", err);

@@ -8,6 +8,11 @@ const setupDatabase = require("./database"); // Import the setupDatabase functio
 const app = express();
 
 app.use(cors()); // Enable CORS for all origins
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
+
 app.use(bodyParser.json()); // Parse JSON-encoded bodies
 
 // Set up database tables

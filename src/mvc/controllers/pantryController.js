@@ -69,6 +69,22 @@ function deleteMultipleItems(req, res) {
   });
 }
 
+function deleteAllItems(req, res) {
+  console.log("DELETE /all handler executing.");
+  pantryModel.deleteAllItems((err, result) => {
+    if (err) {
+      console.error("Error when deleting all items:", err);
+      res.status(500).send("Error deleting all items from the database");
+      return;
+    }
+    console.log(`Response from model: ${JSON.stringify(result)}`);
+    res.json({
+      message: "All items deleted",
+      deletedCount: result.deletedCount,
+    });
+  });
+}
+
 module.exports = {
   createItem,
   createMultipleItems,
@@ -76,4 +92,5 @@ module.exports = {
   updateItem,
   deleteItem,
   deleteMultipleItems,
+  deleteAllItems,
 };
