@@ -97,16 +97,6 @@ function deleteMultiple(ids, callback) {
   );
 }
 
-// function deleteAllItems(callback) {
-//   db.run(`DELETE FROM pantry`, function (err) {
-//     if (err) {
-//       callback(err);
-//       return;
-//     }
-//     callback(null, { deletedCount: this.changes });
-//   });
-// }
-
 function deleteAllItems(callback) {
   console.log("Attempting to delete all items from the pantry table.");
   db.run(`DELETE FROM pantry`, function (err) {

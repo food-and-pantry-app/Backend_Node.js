@@ -20,7 +20,7 @@ const generateRecipesByCategory = async (cuisine, count) => {
           { role: "system", content: "You are a helpful assistant." },
           {
             role: "user",
-            content: `Generate ${count} concise recipes for "${cuisine}" cuisine. Each recipe should include a Title, Images as null, Cuisine, a short Description, Ingredients as a JSON array, Instructions as a JSON array, PrepTime, CookTime, TotalTime, Servings, and CreatedAt in ISO format. The response must be in JSON format.`,
+            content: `Generate ${count} concise recipes for "${cuisine}" cuisine. Each recipe should include a Title (String), Images as null, Cuisine (String), a short Description (String), Ingredients as an array of strings, Instructions as an array of strings, PrepTime (Int), CookTime (Int), TotalTime (Int), Servings (Int), and CreatedAt in ISO format. The response must be in JSON format.`,
           },
         ],
         max_tokens: maxTokens,
@@ -34,12 +34,22 @@ const generateRecipesByCategory = async (cuisine, count) => {
       }
     );
 
-    // Extract JSON formatted string from response
-    const jsonResponse = JSON.parse(
-      response.data.choices[0].message.content.trim()
-    );
-    console.log(`Generated Recipes for ${cuisine}:\n`, jsonResponse);
-    saveItemsToFile(jsonResponse);
+    // Clean response and remove markdown or backticks
+    let jsonResponseText = response.data.choices[0].message.content.trim();
+    jsonResponseText = jsonResponseText.replace(/`+/g, ""); // Remove backticks
+
+    try {
+      // Attempt to parse the cleaned JSON text
+      const jsonResponse = JSON.parse(jsonResponseText);
+      console.log(`Generated Recipes for ${cuisine}:\n`, jsonResponse);
+      saveItemsToFile(jsonResponse);
+    } catch (parseError) {
+      // Log and throw error if JSON parsing fails
+      console.error("Failed to parse JSON:", parseError.message);
+      throw new Error(
+        "GPT response failed, did not meet filter requirements. Try again."
+      );
+    }
   } catch (error) {
     console.error(`Error generating recipes for ${cuisine}:`, error.message);
     if (error.response) {
@@ -59,12 +69,34 @@ function saveItemsToFile(items) {
   fs.readFile(OUTPUT_FILE, { encoding: "utf8", flag: "a+" }, (err, data) => {
     let json = [];
     if (!err && data.length) {
-      json = JSON.parse(data);
+      try {
+        json = JSON.parse(data);
+      } catch (parseErr) {
+        console.error("Error parsing existing JSON data:", parseErr);
+        json = [];
+      }
     }
-    json.push(...items.recipes);
-    fs.writeFile(OUTPUT_FILE, JSON.stringify(json, null, 2), (err) => {
-      if (err) {
-        console.error("Error writing to file:", err);
+
+    // Append new items ensuring they are in correct format or filter out invalid items
+    if (Array.isArray(items)) {
+      json.push(
+        ...items
+          .map((item) => {
+            if (item && typeof item === "object") {
+              return item; // Add additional validation as necessary
+            }
+            return null;
+          })
+          .filter((item) => item !== null)
+      );
+    } else {
+      console.error("Invalid recipes format:", items);
+      throw new Error("Failed to append invalid recipe format to the file.");
+    }
+
+    fs.writeFile(OUTPUT_FILE, JSON.stringify(json, null, 2), (writeErr) => {
+      if (writeErr) {
+        console.error("Error writing to file:", writeErr);
       } else {
         console.log("Successfully saved items to file:", OUTPUT_FILE);
       }
@@ -73,4 +105,4 @@ function saveItemsToFile(items) {
 }
 
 // Example usage
-generateRecipesByCategory("Italian", 5);
+generateRecipesByCategory("Italian", 3);

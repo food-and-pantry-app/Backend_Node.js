@@ -22,6 +22,5 @@ router.delete("/", pantryController.deleteMultipleItems);
 
 // Delete all pantry items
 router.delete("/all", pantryController.deleteAllItems);
-router.delete("/delete-all-test", pantryController.deleteAllItems);
 
 module.exports = router;

@@ -7,22 +7,19 @@ const setupDatabase = require("./database"); // Import the setupDatabase functio
 
 const app = express();
 
-app.use(cors()); // Enable CORS for all origins
+app.use(cors());
 app.use((req, res, next) => {
   console.log(`Incoming request: ${req.method} ${req.url}`);
   next();
 });
 
-app.use(bodyParser.json()); // Parse JSON-encoded bodies
+app.use(bodyParser.json());
 
-// Set up database tables
-setupDatabase(); // This should ensure tables are ready before the server starts listening.
+setupDatabase();
 
-// Routing
 app.use("/api/recipes", recipesRoutes);
 app.use("/api/pantry", pantryRoutes);
 
-// Start server
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
 });
