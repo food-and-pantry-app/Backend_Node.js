@@ -1,201 +1,47 @@
 [
   {
-    "Title": "Spaghetti Aglio e Olio",
-    "Images": "https://www.sidechef.com/recipe/1caab209-0e0f-4472-8ee1-5bfac9aa8600.png?d=1408x1120",
-    "Cuisine": "Italian",
-    "Description": "A classic Italian pasta dish made with garlic, olive oil, and red pepper flakes.",
+    "Title": "Mystery Stew",
+    "Images": null,
+    "Cuisine": "Undefined",
+    "Description": "A mysterious and delicious stew that will surprise your taste buds.",
     "Ingredients": [
-      "Spaghetti",
-      "Garlic",
-      "Olive oil",
-      "Red pepper flakes",
-      "Parsley",
-      "Parmesan cheese"
+      "1 lb mystery meat",
+      "Assorted unknown vegetables",
+      "Secret blend of spices"
     ],
     "Instructions": [
-      "Cook spaghetti according to package instructions.",
-      "In a pan, sauté minced garlic in olive oil until golden.",
-      "Add red pepper flakes and cooked spaghetti to the pan, toss to combine.",
-      "Serve topped with chopped parsley and grated Parmesan cheese."
-    ],
-    "PrepTime": 10,
-    "CookTime": 10,
-    "TotalTime": 20,
-    "Servings": 4,
-    "CreatedAt": "2022-10-12T09:00:00Z"
-  },
-  {
-    "Title": "Margherita Pizza",
-    "Images": "https://www.yourhomebasedmom.com/wp-content/uploads/2015/04/Thin-Crust-Margharita-Pizza-@yourhomebasedmom.com_0003.jpg",
-    "Cuisine": "Italian",
-    "Description": "A simple and delicious pizza topped with tomato, mozzarella, and fresh basil.",
-    "Ingredients": [
-      "Pizza dough",
-      "Tomato sauce",
-      "Fresh mozzarella",
-      "Fresh basil leaves",
-      "Olive oil",
-      "Salt",
-      "Pepper"
-    ],
-    "Instructions": [
-      "Preheat oven to 450°F (230°C).",
-      "Roll out pizza dough and top with tomato sauce, sliced mozzarella, and basil leaves.",
-      "Drizzle with olive oil, season with salt and pepper.",
-      "Bake in the oven for 12-15 minutes until crust is golden and cheese is melted.",
-      "Slice and serve hot."
+      "1. Combine mystery meat and vegetables in a pot.",
+      "2. Add the secret blend of spices.",
+      "3. Cook over medium heat until ingredients are tender.",
+      "4. Serve hot and enjoy the mystery!"
     ],
     "PrepTime": 15,
-    "CookTime": 15,
-    "TotalTime": 30,
-    "Servings": 2,
-    "CreatedAt": "2022-10-12T09:30:00Z"
-  },
-  {
-    "Title": "Tiramisu",
-    "Images": "https://abajillianrecipes.com/wp-content/uploads/2021/12/Baileys-Tiramisu-A-baJillian-Recipes-24.jpg",
-    "Cuisine": "Italian",
-    "Description": "A classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cream.",
-    "Ingredients": [
-      "Ladyfingers",
-      "Espresso coffee",
-      "Mascarpone cheese",
-      "Eggs",
-      "Sugar",
-      "Cocoa powder"
-    ],
-    "Instructions": [
-      "Dip ladyfingers in espresso and layer them in a dish.",
-      "Whisk together mascarpone, eggs, and sugar to make a creamy mixture.",
-      "Spread a layer of the mixture over the ladyfingers.",
-      "Repeat the layers and refrigerate for at least 4 hours.",
-      "Dust with cocoa powder before serving."
-    ],
-    "PrepTime": 30,
-    "CookTime": 0,
-    "TotalTime": 240,
-    "Servings": 6,
-    "CreatedAt": "2022-10-12T10:00:00Z"
-  },
-  {
-    "Title": "Chicken Tikka Masala",
-    "Images": "https://www.kitchensanctuary.com/wp-content/uploads/2019/09/Chicken-Tikka-Masala-square-FS-51.jpg",
-    "Cuisine": "Indian",
-    "Description": "A classic Indian dish featuring marinated chicken cooked in a rich, creamy tomato-based sauce.",
-    "Ingredients": [
-      "500g boneless, skinless chicken thighs",
-      "1 cup plain yogurt",
-      "2 tbsp ginger garlic paste",
-      "1 tsp ground cumin",
-      "1 tsp ground coriander",
-      "1 tsp paprika",
-      "Salt to taste",
-      "1 can diced tomatoes",
-      "1 cup heavy cream",
-      "1 tbsp garam masala",
-      "1 tsp turmeric",
-      "Salt and pepper to taste",
-      "Cooking oil",
-      "Fresh cilantro for garnish"
-    ],
-    "Instructions": [
-      "Marinate the chicken in yogurt and spices for at least 1 hour.",
-      "Thread the chicken onto skewers and grill until cooked through.",
-      "In a separate pan, combine diced tomatoes, cream, and spices to make the sauce.",
-      "Add the grilled chicken to the sauce and simmer for 10 minutes.",
-      "Garnish with fresh cilantro and serve hot with rice or naan."
-    ],
-    "PrepTime": 60,
-    "CookTime": 30,
-    "TotalTime": 90,
-    "Servings": 4,
-    "CreatedAt": "2022-01-15T10:00:00Z"
-  },
-  {
-    "Title": "Vegetable Biryani",
-    "Images": "https://www.feastingathome.com/wp-content/uploads/2017/10/Vegetable-Biryani_-e1683054250848.jpg",
-    "Cuisine": "Indian",
-    "Description": "A fragrant and flavorful rice dish cooked with mixed vegetables and aromatic spices.",
-    "Ingredients": [
-      "2 cups basmati rice, soaked for 30 minutes",
-      "1 cup mixed vegetables (carrots, peas, potatoes, beans)",
-      "1 cinnamon stick",
-      "2 bay leaves",
-      "4 cloves",
-      "4 cardamom pods",
-      "Cooking oil",
-      "Ghee",
-      "Fried onions for garnish"
-    ],
-    "Instructions": [
-      "In a large pot, heat oil and ghee, add whole spices and sauté until fragrant.",
-      "Add mixed vegetables and cook until slightly tender.",
-      "Add soaked rice, water, and salt. Cover and cook until rice is done.",
-      "Garnish with fried onions and serve hot with raita or yogurt."
-    ],
-    "PrepTime": 30,
-    "CookTime": 30,
+    "CookTime": 45,
     "TotalTime": 60,
-    "Servings": 6,
-    "CreatedAt": "2022-01-15T10:30:00Z"
-  },
-  {
-    "Title": "Palak Paneer",
-    "Images": "https://beextravegant.com/wp-content/uploads/2021/08/Palak-paneer-7-edited.jpg",
-    "Cuisine": "Indian",
-    "Description": "A creamy spinach curry with chunks of paneer cheese, seasoned with aromatic spices.",
-    "Ingredients": [
-      "500g fresh spinach leaves",
-      "250g paneer, cubed",
-      "1 tsp cumin seeds",
-      "1 tsp turmeric",
-      "1 tsp garam masala",
-      "Salt to taste",
-      "Cooking oil",
-      "Ginger garlic paste",
-      "Fresh cream"
-    ],
-    "Instructions": [
-      "Blanch spinach leaves in boiling water, then blend into a smooth puree.",
-      "In a pan, heat oil, add cumin seeds, ginger garlic paste, and spices.",
-      "Add spinach puree and cook until it thickens.",
-      "Add cubed paneer and simmer for a few minutes.",
-      "Finish with a drizzle of fresh cream and serve hot with rice or roti."
-    ],
-    "PrepTime": 20,
-    "CookTime": 20,
-    "TotalTime": 40,
     "Servings": 4,
-    "CreatedAt": "2022-01-15T11:00:00Z"
+    "CreatedAt": "2022-10-20T09:00:00Z"
   },
   {
-    "Title": "Chicken Enchiladas",
-    "Images": "https://www.foodnetwork.com/content/dam/images/food/fullset/2018/5/1/0/fnk_buffalo-chicken-enchiladas-h1_s4x3.jpg",
-    "Cuisine": "Mexican",
-    "Description": "Delicious and cheesy chicken enchiladas with a flavorful sauce.",
+    "Title": "Mystery Delight",
+    "Images": null,
+    "Cuisine": "Undefined",
+    "Description": "A unique dish that surprises the taste buds with its mysterious flavors.",
     "Ingredients": [
-      "2 cups shredded cooked chicken",
-      "1 can (10 oz) red enchilada sauce",
-      "1 cup shredded cheese",
-      "8 small flour tortillas",
-      "1/2 cup diced onion",
-      "1/2 cup diced bell pepper",
-      "1 tsp cumin",
-      "1/2 tsp chili powder",
-      "Salt and pepper to taste"
+      "1 cup of ambiguity",
+      "2 dashes of enigma",
+      "A pinch of secrecy",
+      "3 mysteries to solve"
     ],
     "Instructions": [
-      "Preheat oven to 375°F.",
-      "In a bowl, mix shredded chicken, diced onion, bell pepper, cumin, chili powder, salt, and pepper.",
-      "Fill each tortilla with the chicken mixture, roll it up, and place seam side down in a baking dish.",
-      "Pour enchilada sauce over the rolled tortillas and sprinkle cheese on top.",
-      "Bake for 20-25 minutes until cheese is bubbly and golden.",
-      "Serve hot and enjoy!"
+      "Combine ambiguity and enigma in a bowl.",
+      "Sprinkle with secrecy and mix well.",
+      "Let it marinate with the mysteries for an hour.",
+      "Serve and enjoy the enigmatic flavors!"
     ],
-    "PrepTime": 20,
-    "CookTime": 25,
+    "PrepTime": 15,
+    "CookTime": 30,
     "TotalTime": 45,
     "Servings": 4,
-    "CreatedAt": "2022-02-25T10:00:00Z"
+    "CreatedAt": "2022-10-20T15:30:00Z"
   }
 ]

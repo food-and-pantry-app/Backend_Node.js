@@ -5,6 +5,10 @@ const recipesModel = require("../../mvc/models/recipesModel");
 const INPUT_FILE = path.join(__dirname, "recipeItems.json");
 
 function formatIngredients(ingredients) {
+  if (!Array.isArray(ingredients)) {
+    console.error("Invalid ingredients format:", ingredients);
+    return []; // Return an empty array if ingredients are not in expected format
+  }
   return ingredients.map((ingredient) => {
     if (typeof ingredient === "string") {
       // Split the string if needed or adapt this part to your specific format
@@ -25,20 +29,21 @@ function loadRecipesAndSaveToDB() {
       console.error("Error reading recipe items file:", err);
       return;
     }
-    const recipes = JSON.parse(data);
+    let recipes;
+    try {
+      recipes = JSON.parse(data);
+    } catch (parseError) {
+      console.error("Error parsing recipe items file:", parseError);
+      return;
+    }
+
     recipes.forEach((recipe) => {
-      // Format ingredients if necessary
+      // Check each field for existence and clean/format if necessary
       recipe.Ingredients = formatIngredients(recipe.Ingredients);
-
-      // Ensure image URLs are saved correctly
-      if (typeof recipe.Images === "string") {
-        recipe.Images = cleanString(recipe.Images); // Clean the string from any extra quotes
-      }
-
-      // You might also want to ensure that other fields are clean
-      recipe.Title = cleanString(recipe.Title);
-      recipe.Description = cleanString(recipe.Description);
-      recipe.Cuisine = cleanString(recipe.Cuisine);
+      recipe.Images = cleanString(recipe.Images || "");
+      recipe.Title = cleanString(recipe.Title || "Untitled");
+      recipe.Description = cleanString(recipe.Description || "");
+      recipe.Cuisine = cleanString(recipe.Cuisine || "General");
 
       recipesModel.addRecipe(recipe, (err, result) => {
         if (err) {
@@ -51,5 +56,4 @@ function loadRecipesAndSaveToDB() {
   });
 }
 
-// Call this function to start the import process
-loadRecipesAndSaveToDB();
+module.exports = { loadRecipesAndSaveToDB };
